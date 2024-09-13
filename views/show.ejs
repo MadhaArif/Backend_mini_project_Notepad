@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= filename.replace('.txt', '') %></title> <!-- Display the task title -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 text-white p-10">
+        <div class="task-details bg-zinc-800 p-5 rounded-md">
+            <h1 class="text-3xl mb-5"><%= filename.replace('.txt', '') %></h1> <!-- Task title -->
+            <p><%= filedata %></p> <!-- Task details/content -->
+        </div>
+        <a class="text-blue-500 inline-block mt-5" href="/">Back to tasks</a>
+    </div>
+</body>
+</html>
