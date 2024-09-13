@@ -30,6 +30,25 @@ app.get("/file/:filename", function (req, res) {
     });
 });
 
+// Example of edit route
+app.get('/edit/:filename', (req, res) => {
+    res.render('edit', { filename: req.params.filename }); // Ensure that data is passed properly
+});
+
+app.post('/edit', (req, res) => {
+    const previousFileName = `./files/${req.body.previous}`;
+    const newFileName = `./files/${req.body.new}`;
+
+    fs.rename(previousFileName, newFileName, function (err) {
+        if (err) {
+            console.error("Error renaming file:", err);
+            return res.status(500).send("Failed to rename file");
+        }
+        res.redirect("/");
+    });
+});
+
+
 // Route to create a new file
 app.post("/create", function (req, res) {
     const fileName = `${req.body.title.replace(/\s+/g, '')}.txt`; // Remove spaces from the title and append ".txt"

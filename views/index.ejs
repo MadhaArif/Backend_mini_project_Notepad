@@ -20,7 +20,10 @@
                 <% files.forEach(function(file) { %>
                     <div class="task min-w-72 px-3 py-4 rounded-md bg-zinc-800">
                         <h1 class="text-white text-3xl tracking-tight"><%= file.replace('.txt', '') %></h1> <!-- Show file name without the .txt extension -->
-                        <a class="text-blue-500 inline-block mt-3" href="/file/<%= file %>">Read More</a>
+                        <div class="flex w-full justify-between items-centre mt-3">
+                            <a class="text-blue-500 inline-block " href="/file/<%= file %>">Read More</a>
+                            <a class="text-zinc-600" href="/edit/<%= file %>">edit filename</a>
+                        </div>
                     </div>
                 <% }) %>
             <% } else { %>
